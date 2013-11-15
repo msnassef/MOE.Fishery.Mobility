@@ -10,6 +10,11 @@
     <link href="css/kendoui/kendo.mobile.all.min.css" rel="stylesheet" />
     <link href="css/kendoui/kendo.rtl.min.css" rel="stylesheet" />
 
+     <!--Kendoui-->
+    <script src="js/kendoui/jquery.min.js"></script>
+    <script src="js/kendoui/kendo.mobile.min.js"></script>
+    <!--End of Kendoui-->
+
     <!--Core Scripts-->
     <script type="text/javascript" charset="utf-8" src="js/CoreScripts/jquery-1.3.2.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/CoreScripts/cordova.js"></script>
@@ -19,10 +24,7 @@
     <!--End of References for calling service using service object-->
     <!--End of Core Scripts-->
 
-    <!--Kendoui-->
-    <script src="js/kendoui/jquery.min.js"></script>
-    <script src="js/kendoui/kendo.mobile.min.js"></script>
-    <!--End of Kendoui-->
+   
 
 </head>
 <body class="k-rtl">
@@ -56,6 +58,7 @@
 
         </ul>
         <button id="buttonLogin" onclick="btnLogin_Click()" style="float: left; margin-left: 10px;">تسجيل الدخول</button>
+        <button id="buttonCallMethod" onclick="callMethod()" style="float: left; margin-left: 10px;">Call Method</button>
     </div>
 
     <div data-role="modalview" id="modalview-login" style="width: 95%; height: 18em;">
