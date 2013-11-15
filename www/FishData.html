@@ -87,7 +87,7 @@
 </style>
 <script>
     var companyCombo;
-    var txtDate;
+    var dateControl;
     var btnLoadData;
     var btnSave;
     var dataListView;
@@ -98,7 +98,7 @@
         btnSave.click(btnSave_Click);
         companyCombo = e.view.element.find("#selectCompany");
         companyCombo.change(selectCompanySelectionChanged);
-        txtDate = e.view.element.find("#txtDate");
+        dateControl = e.view.element.find("#txtDate");
         dataListView = e.view.element.find("#dataListView");
         app.pane.loader.show();
 
@@ -125,7 +125,7 @@
 
     //#region LoadData
     function btnLoadData_Click() {
-        var selectedDate = txtDate.val();
+        var selectedDate = dateControl.val();
         var selectedCompany = companyCombo.val();
         if (selectedDate == "") {
             alert("فضلا اختر تاريخ");
@@ -187,7 +187,7 @@
             transactions: []
         };
 
-        var selectedDate = txtDate.val();
+        var selectedDate = dateControl.val();
         var selectedCompany = companyCombo.val();
 
         var ii = 0;
