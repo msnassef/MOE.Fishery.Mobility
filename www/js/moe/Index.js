@@ -26,6 +26,7 @@ $(function () {
 
         service.call("Login", { userName: usernameVal, password: passwordVal }, function (data) {
             if (data == "succeeded") {
+                alert('succeeded');
                 succeededUsername = usernameVal;
                 succeededPassword = passwordVal;
                 navigateTo("mainMenu.html");
@@ -46,6 +47,7 @@ function btnLogin_Click() {
 
     service.call("Login", { userName: usernameVal, password: passwordVal }, function (data) {
         if (data == "succeeded") {
+            alert('succeeded');
             succeededUsername = usernameVal;
             succeededPassword = passwordVal;
             navigateTo("mainMenu.html");
