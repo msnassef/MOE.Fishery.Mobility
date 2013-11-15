@@ -10,7 +10,7 @@ function sliderightto(url) {
 
 function navigateTo(url) {
     app.navigate(
-    url    
+    url
 );
 }
 
@@ -20,43 +20,9 @@ var serviceurl = "http://192.168.1.75/Nasef_Mobile/MOE_Mobile.asmx"; // for labt
 var service = new WS(serviceurl);
 
 $(function () {
-    $('#btnCallMethodJqueryAjax').click(function () {
-        $.ajax({
-            type: "POST",
-            url: serviceurl + "/GetListViewData",
-            data: "{}",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (msg) {
-                groupedData = eval(msg.d);
-                var strNames = "";
-                for (i = 0; i < groupedData.length; i++) {
-                    strNames += groupedData[i].Name + "<br/>";
-                }
-                alert(strNames);
-            },
-            error: function (e) {
-                debugger;
-            }
-        });
-    });
-
-    $('#btnCallMethodService').click(function () {
-        service.call("GetListViewData", {}, function (data) {
-            groupedData = eval(data);
-            var strNames = "";
-            for (i = 0; i < groupedData.length; i++) {
-                strNames += groupedData[i].Name + "<br/>";
-            }
-            alert(strNames);
-        },
-        function (error) { alert('error'); });
-    });
-
     $('#btnLogin').click(function () {
-        alert('hi');
         var usernameVal = $('#txtUsername').val();
-        var passwordVal=$('#txtPassword').val();        
+        var passwordVal = $('#txtPassword').val();
 
         service.call("Login", { userName: usernameVal, password: passwordVal }, function (data) {
             if (data == "succeeded") {
@@ -68,12 +34,29 @@ $(function () {
                 $("#modalview-login").kendoMobileModalView("open");
             }
         },
-        function (error) { alert('error'); debugger; });             
+        function (error) { alert('error'); debugger; });
     });
 
 });
 
-function tryme()
-{
+function btnLogin_Click() {
+    var usernameVal = $('#txtUsername').val();
+    var passwordVal = $('#txtPassword').val();
+
+    service.call("Login", { userName: usernameVal, password: passwordVal }, function (data) {
+        if (data == "succeeded") {
+            succeededUsername = usernameVal;
+            succeededPassword = passwordVal;
+            navigateTo("mainMenu.html");
+        }
+        else {
+            $("#modalview-login").kendoMobileModalView("open");
+        }
+    },
+    function (error) { alert('error'); debugger; });
+    return false;
+}
+
+function tryme() {
     alert('try me from file');
 }
