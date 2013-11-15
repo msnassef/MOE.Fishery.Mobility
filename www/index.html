@@ -30,7 +30,7 @@
 
 
     <div data-role="view" id="customloginView" style="height: 100%;">
-        
+
         <div data-role="header">
             <div data-role="navbar">
                 <span>تسجيل الدخول</span>
@@ -55,7 +55,7 @@
 
         </ul>
         <a id="btnLogin" type="button" data-role="button" style="float: left; margin-left: 10px;">تسجيل الدخول</a>
-        <a id="btnTryMe" type="button" data-role="button"  style="float: left; margin-left: 10px;" onclick="return btnLogin_Click();">login Click</a>        
+        <a id="btnTryMe" type="button" data-role="button" style="float: left; margin-left: 10px;" onclick="return btnLogin_Click();">login Click</a>
     </div>
 
     <div data-role="modalview" id="modalview-login" style="width: 95%; height: 18em;">
@@ -171,6 +171,10 @@
                 right: 0px !important;
                 -webkit-transform: rotate(225deg);
             }
+
+        .km-android4 input {
+            -webkit-user-modify: read-write;
+        }
     </style>
     <script>
         function closeModalViewLogin() {
@@ -180,10 +184,13 @@
 
 
     <script>
+        //var app = new kendo.mobile.Application(document.body, {
+        //    initial: "customloginView",
+        //    platform: "android"
+        //});
         var app = new kendo.mobile.Application(document.body, {
-            initial: "customloginView",
-            platform: "android"
-        });        
+            initial: "customloginView"           
+        });
     </script>
     <script src="js/moe/Index.js"></script>
 </body>
