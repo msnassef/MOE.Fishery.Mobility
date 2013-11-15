@@ -25,7 +25,7 @@
     <!--End of Kendoui-->
 
 
-    <script src="js/moe/Scripts/Index.js"></script>
+    <script src="js/moe/Index.js"></script>
 
 
 </head>
@@ -40,7 +40,7 @@
                 <span>تسجيل الدخول</span>
             </div>
         </div>
-            <ul data-role="listview" data-layout="mobile-view" data-style="inset">
+        <ul data-role="listview" data-layout="mobile-view" data-style="inset">
             <li class="li-logo">
                 <img src="img/logo.png" class="logoImage" />
             </li>
@@ -56,29 +56,30 @@
             <li>
                 <label for="password">كلمة المرور:</label>
                 <input type="password" id="txtPassword" /></li>
-           
+
         </ul>
-        <a id="btnLogin" type="button" data-role="button" style="float: left; left: 10px;">تسجيل الدخول</a>
-         <a id="btnTryMe" type="button" data-role="button" onclick="tryme();">try me</a>
+        <a id="btnLogin" type="button" data-role="button" style="float: left; margin-left: 10px;">تسجيل الدخول</a>
+        <a id="btnTryMe" type="button" data-role="button"  style="float: left; margin-left: 10px;" onclick="tryme();">try me from file</a>
+        <a id="btnTryMehere" type="button" data-role="button" style="float: left; margin-left: 10px;" onclick="alert('try me here');">try me</a>
     </div>
 
     <div data-role="modalview" id="modalview-login" style="width: 95%; height: 18em;">
         <div data-role="header">
             <div data-role="navbar">
-                <span>خطأ في تسجيل الدخول</span>                
+                <span>خطأ في تسجيل الدخول</span>
             </div>
         </div>
-        <h3 style="height:5em">
-        اسم المستخدم غير صحيح أو كلمة المرور غير صحيحه، برجاء التأكد.
-            </h3>
-        <a data-click="closeModalViewLogin" id="modalview-login-button" type="button" data-role="button">اعادة المحاولة</a>        
+        <h3 style="height: 5em">اسم المستخدم غير صحيح أو كلمة المرور غير صحيحه، برجاء التأكد.
+        </h3>
+        <a data-click="closeModalViewLogin" id="modalview-login-button" type="button" data-role="button">اعادة المحاولة</a>
     </div>
 
     <style scoped>
-         #btnTryMe {
-        float: left;
-        margin-left: 10px;
-    }
+        #btnTryMe {
+            float: left;
+            margin-left: 10px;
+        }
+
         .camera-image {
             width: 20%;
         }

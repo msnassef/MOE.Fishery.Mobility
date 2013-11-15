@@ -75,5 +75,5 @@ $(function () {
 
 function tryme()
 {
-    alert('haha');
+    alert('try me from file');
 }
