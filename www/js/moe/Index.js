@@ -57,7 +57,7 @@ function btnLogin_Click() {
     //    }
     //},
     //function (error) { alert('error'); debugger; });
-    return false;
+    //return false;
 }
 
 function tryme() {
