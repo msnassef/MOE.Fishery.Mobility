@@ -72,3 +72,8 @@ $(function () {
     });
 
 });
+
+function tryme()
+{
+    alert('haha');
+}
