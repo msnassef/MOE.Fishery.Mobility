@@ -45,18 +45,18 @@ function btnLogin_Click() {
     var usernameVal = $('#txtUsername').val();
     var passwordVal = $('#txtPassword').val();
     navigateTo("mainMenu.html");
-    //service.call("Login", { userName: usernameVal, password: passwordVal }, function (data) {
-    //    if (data == "succeeded") {
-    //        alert('succeeded');
-    //        succeededUsername = usernameVal;
-    //        succeededPassword = passwordVal;
+    service.call("Login", { userName: usernameVal, password: passwordVal }, function (data) {
+        if (data == "succeeded") {
+            alert('succeeded');
+            succeededUsername = usernameVal;
+            succeededPassword = passwordVal;
            
-    //    }
-    //    else {
-    //        $("#modalview-login").kendoMobileModalView("open");
-    //    }
-    //},
-    //function (error) { alert('error'); debugger; });
+        }
+        else {
+            $("#modalview-login").kendoMobileModalView("open");
+        }
+    },
+    function (error) { alert('error'); debugger; });
     //return false;
 }
 
