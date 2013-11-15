@@ -54,6 +54,7 @@ $(function () {
     });
 
     $('#btnLogin').click(function () {
+        alert('hi');
         var usernameVal = $('#txtUsername').val();
         var passwordVal=$('#txtPassword').val();        
 
