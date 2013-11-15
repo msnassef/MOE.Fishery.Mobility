@@ -43,8 +43,9 @@ $(function () {
 function btnLogin_Click() {
     alert('bb');
     var usernameVal = $('#txtUsername').val();
+    alert(usernameVal);
     var passwordVal = $('#txtPassword').val();
-
+    alert(passwordVal);
     service.call("Login", { userName: usernameVal, password: passwordVal }, function (data) {
         if (data == "succeeded") {
             alert('succeeded');
