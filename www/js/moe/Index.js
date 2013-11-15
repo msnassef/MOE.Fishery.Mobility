@@ -17,69 +17,43 @@ function navigateTo(url) {
 //var serviceurl = "http://10.104.2.81/Nasef_Mobile/MOE_Mobile.asmx"; // for pc 
 var serviceurl = "http://192.168.1.75/Nasef_Mobile/MOE_Mobile.asmx"; // for labtop computer test
 //var serviceurl = "http://localhost/NASEF_ASMX/MOE_Mobile.asmx"; // for computer test
-var service = new WS(serviceurl);
-
-$(function () {
-    $('#btnLogin').click(function () {
-        var usernameVal = $('#txtUsername').val();
-        var passwordVal = $('#txtPassword').val();
-
-        service.call("Login", { userName: usernameVal, password: passwordVal }, function (data) {
-            if (data == "succeeded") {
-                alert('succeeded');
-                succeededUsername = usernameVal;
-                succeededPassword = passwordVal;
-                navigateTo("mainMenu.html");
-            }
-            else {
-                $("#modalview-login").kendoMobileModalView("open");
-            }
-        },
-        function (error) { alert('error'); debugger; });
-    });
-
-});
 
 function btnLogin_Click() {
-    alert('bb');
     var usernameVal = $('#txtUsername').val();
     var passwordVal = $('#txtPassword').val();
 
 
+    callAjaxMethod("login", { userName: usernameVal, password: passwordVal }, onLoginSucceeded, onLoginCallError);
+}
+
+function callAjaxMethod(method, data, OnSucceedHandler, OnErrorHandler) {
     $.ajax({
         type: "POST",
-        url: serviceurl + "/login",
-        data: JSON.stringify({ userName: usernameVal, password: passwordVal }),
+        url: serviceurl + '/' + method,
+        data: JSON.stringify(data),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: function (msg) {
-            alert('succeeded');
-           if (msg.d == 'succeeded') {
-                navigateTo("mainMenu.html");
-            }
-            else {
-                $("#modalview-login").kendoMobileModalView("open");
-            }
+        success: function (response) {
+            if (OnSucceedHandler)
+                OnSucceedHandler(response.d);
         },
-        error: function (e) {
-            debugger;
-        }
+        error: OnErrorHandler
     });
-
-    //service.call("Login", { userName: usernameVal, password: passwordVal }, function (data) {
-    //    if (data == "succeeded") {
-    //        alert('succeeded');
-    //        succeededUsername = usernameVal;
-    //        succeededPassword = passwordVal;
-    //        navigateTo("mainMenu.html");
-    //    }
-    //    else {
-    //        $("#modalview-login").kendoMobileModalView("open");
-    //    }
-    //},
-    //function (error) { alert('error'); debugger; });
-    //return false;
 }
+function onLoginSucceeded(data) {
+    if (data == 'succeeded') {
+        navigateTo("mainMenu.html");
+    }
+    else {
+        alert('خطأ في اسم الدخول أو كلمة المرور');
+        //  $("#modalview-login").kendoMobileModalView("open");
+    }
+}
+function onLoginCallError(error) {
+    alert('error in service call');
+}
+
+
 
 function tryme() {
     alert('try me from file');

@@ -101,7 +101,9 @@
         txtDate = e.view.element.find("#txtDate");
         dataListView = e.view.element.find("#dataListView");
         app.pane.loader.show();
-        service.call("GetAllFishingCompanies", {}, onGetAllFishingCompaniesSucceeded, onGetAllFishingCompaniesError);
+
+       
+        callAjaxMethod("GetAllFishingCompanies", {}, onGetAllFishingCompaniesSucceeded, onGetAllFishingCompaniesError);
     }
 
     //#region Combo Companies Methods
@@ -134,7 +136,7 @@
             return false;
         }
         app.pane.loader.show();
-        service.call("GetDailyTransaction", { trans_dat: selectedDate, comp_id: selectedCompany }, onLoadDataSucceeded, onLoadDataError);
+        callAjaxMethod("GetDailyTransaction", { trans_dat: selectedDate, comp_id: selectedCompany }, onLoadDataSucceeded, onLoadDataError);
     }
     function onLoadDataSucceeded(data) {
         var dailyTrans = eval(data);
@@ -217,7 +219,7 @@
         }
         app.pane.loader.show();
 
-        service.call("SaveDailyTransaction", { transactions: JSON.stringify(dataToSend.transactions), userName: succeededUsername, date: selectedDate, companyID: selectedCompany }, onSaveSucceeded, onSaveError);
+        callAjaxMethod("SaveDailyTransaction", { transactions: JSON.stringify(dataToSend.transactions), userName: succeededUsername, date: selectedDate, companyID: selectedCompany }, onSaveSucceeded, onSaveError);
     }
     function onSaveSucceeded(data) {
         app.pane.loader.hide();
