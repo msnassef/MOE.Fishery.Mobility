@@ -40,6 +40,7 @@ $(function () {
 });
 
 function btnLogin_Click() {
+    alert('bb');
     var usernameVal = $('#txtUsername').val();
     var passwordVal = $('#txtPassword').val();
 
